@@ -1,183 +1,177 @@
-/* ===== 全局基础 ===== */
+/* ====== 基础样式 ====== */
 body {
   margin: 0;
-  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   background-color: #fafafa;
-  color: #333;
-  font-size: clamp(14px, 2vw, 17px);
+  color: #222;
 }
 
-/* ===== 顶部导航栏 ===== */
+/* 顶部导航栏 */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 12px 20px;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 }
 
 .logo {
-  font-size: clamp(18px, 2.5vw, 22px);
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
   color: #ff7f50;
-  white-space: nowrap;
 }
 
 .search {
   flex: 1;
-  margin: 0 20px;
+  margin: 0 16px;
   padding: 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  background-color: #f7f7f7;
+  border-radius: 18px;
+  border: 1px solid #e0e0e0;
+  background: #f7f7f7;
   outline: none;
-  transition: all 0.2s ease;
-}
-
-.search:focus {
-  border-color: #ff7f50;
-  background-color: #fff;
 }
 
 .avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  cursor: pointer;
 }
 
-/* ===== 主体内容 ===== */
+/* ====== 内容区域 ====== */
 .content {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 720px;
+  margin: 20px auto 80px;
+  padding: 0 16px;
 }
 
+/* ====== 标题区 ====== */
 .section-title h2 {
-  font-size: clamp(20px, 3vw, 26px);
+  font-size: 18px;
   color: #222;
-  margin-bottom: 8px;
+  margin: 4px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .section-title p {
+  font-size: 14px;
   color: #777;
   margin-top: 0;
-  margin-bottom: 24px;
 }
 
-/* ===== 播客卡片 ===== */
+/* ====== 播客列表 ====== */
 .podcast-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.podcast-card {
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.podcast-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: background 0.2s ease;
 }
 
-.podcast-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+.podcast-item:hover {
+  background: #fdf5f2; /* 轻微橙色背景高亮 */
 }
 
-.cover {
-  width: 100%;
-  height: 40vw; /* 自适应高度 */
-  max-height: 180px;
+.cover-small {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
   object-fit: cover;
+  flex-shrink: 0;
+  margin-right: 14px;
 }
 
 .info {
-  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .info h3 {
   margin: 0;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: 15px;
+  font-weight: 600;
   color: #222;
+  line-height: 1.4;
 }
 
 .info p {
-  margin: 8px 0 12px;
-  color: #666;
-  font-size: clamp(13px, 2vw, 15px);
+  font-size: 13px;
+  color: #777;
+  margin: 6px 0 0;
 }
 
-.play-btn {
-  background-color: #ff7f50;
+/* 播放按钮（右侧小按钮） */
+.play-btn-small {
+  background: none;
   border: none;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 24px;
+  color: #ff7f50;
+  font-size: 20px;
+  margin-left: 10px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: clamp(13px, 2vw, 15px);
-  transition: background 0.2s ease;
-  width: fit-content;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
 }
 
-.play-btn:hover {
-  background-color: #ff6333;
+.play-btn-small:hover {
+  transform: scale(1.2);
 }
 
-/* ===== 页脚 ===== */
-.footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #aaa;
-  background-color: #fff;
+/* ====== 分割线 ====== */
+.podcast-item + .podcast-item {
   border-top: 1px solid #eee;
 }
 
-/* ===== 移动端优化 ===== */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px;
-  }
+/* ====== 页脚 ====== */
+.footer {
+  text-align: center;
+  padding: 16px 0;
+  font-size: 13px;
+  color: #aaa;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
 
-  .search {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .avatar {
-    margin-top: 5px;
-    align-self: flex-end;
-  }
-
+/* ====== 移动端优化 ====== */
+@media (max-width: 480px) {
   .content {
-    margin: 20px auto;
-    padding: 0 10px;
+    margin: 16px auto 70px;
+    padding: 0 12px;
   }
 
-  .podcast-card {
-    border-radius: 12px;
+  .cover-small {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
   }
 
-  .info {
-    padding: 12px;
+  .info h3 {
+    font-size: 14px;
   }
 
-  .play-btn {
-    width: 100%;
-    text-align: center;
+  .info p {
+    font-size: 12px;
   }
 
-  .footer {
-    font-size: 13px;
-    padding: 16px;
+  .play-btn-small {
+    font-size: 18px;
+  }
+
+  .section-title h2 {
+    font-size: 16px;
   }
 }
