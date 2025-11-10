@@ -1,0 +1,183 @@
+/* ===== 全局基础 ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  font-size: clamp(14px, 2vw, 17px);
+}
+
+/* ===== 顶部导航栏 ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: bold;
+  color: #ff7f50;
+  white-space: nowrap;
+}
+
+.search {
+  flex: 1;
+  margin: 0 20px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search:focus {
+  border-color: #ff7f50;
+  background-color: #fff;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===== 主体内容 ===== */
+.content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section-title h2 {
+  font-size: clamp(20px, 3vw, 26px);
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: #777;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* ===== 播客卡片 ===== */
+.podcast-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.podcast-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cover {
+  width: 100%;
+  height: 40vw; /* 自适应高度 */
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 16px;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #222;
+}
+
+.info p {
+  margin: 8px 0 12px;
+  color: #666;
+  font-size: clamp(13px, 2vw, 15px);
+}
+
+.play-btn {
+  background-color: #ff7f50;
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: clamp(13px, 2vw, 15px);
+  transition: background 0.2s ease;
+  width: fit-content;
+}
+
+.play-btn:hover {
+  background-color: #ff6333;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #aaa;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+/* ===== 移动端优化 ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+
+  .search {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .avatar {
+    margin-top: 5px;
+    align-self: flex-end;
+  }
+
+  .content {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+
+  .podcast-card {
+    border-radius: 12px;
+  }
+
+  .info {
+    padding: 12px;
+  }
+
+  .play-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer {
+    font-size: 13px;
+    padding: 16px;
+  }
+}
