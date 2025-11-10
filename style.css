@@ -120,15 +120,17 @@ body {
   background: none;
   border: none;
   color: #ff7f50;
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 14px;           /* 原本大概是 20px，现在更精致 */
   cursor: pointer;
+  margin-left: auto;          /* 让按钮自动靠右 */
+  padding-right: 8px;         /* 离右边稍微有点间距 */
   flex-shrink: 0;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, color 0.2s ease;
 }
 
 .play-btn-small:hover {
-  transform: scale(1.2);
+  color: #ff6333;
+  transform: scale(1.1);
 }
 
 /* ====== 分割线 ====== */
